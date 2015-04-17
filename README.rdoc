@@ -9,3 +9,7 @@ https://github.com/benwoody/shrtnr/wiki/Week-1
 === Week 2
 
 https://github.com/benwoody/shrtnr/wiki/Week-2
+
+=== Week 3
+
+https://github.com/benwoody/shrtnr/wiki/Week-3
