@@ -13,3 +13,7 @@ https://github.com/benwoody/shrtnr/wiki/Week-2
 === Week 3
 
 https://github.com/benwoody/shrtnr/wiki/Week-3
+
+=== Week 4
+
+https://github.com/benwoody/shrtnr/wiki/Week-4
