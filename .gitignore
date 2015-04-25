@@ -22,3 +22,6 @@
 /config/secrets.yml
 /config/twitter.yml
 /config/mandril.yml
+
+# Ignore RubyMine directory
+/.idea
