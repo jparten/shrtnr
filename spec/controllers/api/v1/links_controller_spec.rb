@@ -29,5 +29,17 @@ describe Api::V1::LinksController, type: :controller do
         expect(json['shorturl']).to include assigns(:link).short_url
       end
     end
+
+    context "with an invalid url parameter" do
+      let(:json) { JSON.parse(response.body) }
+
+      before do
+        get :create, api_key: user.api_key, url: 'illformed url'
+      end
+
+      it "returns a JSON body with an error message" do
+        expect(response.body).to include '{"errors":{"long_url":["is invalid"]}}'
+      end
+    end
   end
 end

@@ -8,6 +8,8 @@ class Api::V1::LinksController < Api::BaseController
     @link = @user.links.build(param)
     if @link.save
       render json: { shorturl: full_url(@link) }
+    else
+      render json: { errors: @link.errors }
     end
   end
 end
