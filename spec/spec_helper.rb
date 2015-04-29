@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'webmock/rspec'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
@@ -8,6 +9,8 @@ ActiveRecord::Migration.maintain_test_schema!
 
 OmniAuth.config.test_mode = true
 OmniAuth.config.logger = Rails.logger
+
+WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

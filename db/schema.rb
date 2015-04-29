@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308201918) do
+ActiveRecord::Schema.define(version: 20150326015328) do
 
   create_table "links", force: :cascade do |t|
     t.string   "short_url"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20150308201918) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "uid"
+    t.string   "twitter_token"
+    t.string   "twitter_secret"
+    t.string   "api_key"
   end
 
 end

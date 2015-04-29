@@ -11,6 +11,12 @@
             <div class="form-group col-xs-4">
               <%= f.submit "Shorten It!", class: 'btn-lg btn-primary pull-right' %>
             </div>
+            <% if signed_in_through_twitter? %>
+              <div class="form-group col-xs-6">
+                <%= f.check_box :tweet %>
+                <%= f.label "Tweet this link!" %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>

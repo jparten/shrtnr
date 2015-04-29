@@ -18,5 +18,12 @@ Rails.application.routes.draw do
 
   get '/:id' => 'links#redirection', as: :redirect_url
 
+  # api
+  namespace :api do
+    namespace :v1 do
+      get 'links/create'
+    end
+  end
+
   root 'sessions#direct'
 end

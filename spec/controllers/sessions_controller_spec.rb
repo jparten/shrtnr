@@ -53,7 +53,11 @@ describe SessionsController, type: :controller do
 
     context "with valid credentials" do
       before do
-        OmniAuth.config.add_mock(:twitter, { uid: '12345' })
+        OmniAuth.config.add_mock(:twitter, {
+           uid: '12345',
+           info: { nickname: 'test_user' },
+           credentials: { token: "abc", secret: "123" }}
+        )
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
       end
 

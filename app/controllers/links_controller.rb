@@ -3,6 +3,7 @@ class LinksController < ApplicationController
   include SessionsHelper
 
   before_action :find_link, only: [:show, :redirection]
+  after_action :create_tweet, only: [:create]
 
   def create
     url = Link.find_by_long_url(params[:link][:long_url])
@@ -46,6 +47,12 @@ class LinksController < ApplicationController
     end
 
     def link_params
-      params.require(:link).permit(:long_url)
+      params.require(:link).permit(:long_url, :tweet)
+    end
+
+    def create_tweet
+      if current_user && signed_in_through_twitter? && params[:link][:tweet] == '1'
+        current_user.tweet("Check out my new link: #{full_url(@link)}")
+      end
     end
 end

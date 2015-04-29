@@ -15,6 +15,15 @@ else
   TWITTER.symbolize_keys!
 end
 
+# Configure Mandrill
+if Rails.env == 'production'
+  MANDRILL = { username: ENV['mandrill_username'], password: ENV['mandrill_password'] }
+else
+  MANDRILL = YAML.load(File.read(File.expand_path('../mandrill.yml', __FILE__)))
+  MANDRILL.merge! MANDRILL.fetch(Rails.env, {})
+  MANDRILL.symbolize_keys!
+end
+
 module Shortener
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

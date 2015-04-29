@@ -10,6 +10,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+/dump.*
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -20,3 +21,7 @@
 # Ignore secrets!
 /config/secrets.yml
 /config/twitter.yml
+/config/mandril.yml
+
+# Ignore RubyMine directory
+/.idea

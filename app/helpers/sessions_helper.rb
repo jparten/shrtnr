@@ -8,6 +8,10 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def signed_in_through_twitter?
+    current_user && !current_user.uid.blank?
+  end
+
   def authentication_required
     unless signed_in?
       store_location
