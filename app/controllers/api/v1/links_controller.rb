@@ -12,4 +12,11 @@ class Api::V1::LinksController < Api::BaseController
       render json: { errors: @link.errors }
     end
   end
+
+  def show
+    @link = Link.find_by_short_url(params[:id])
+    if @link
+      render json: @link.as_json(only: [:short_url, :long_url, :clicks], include: {user: {only: [:name, :email] } })
+    end
+  end
 end
